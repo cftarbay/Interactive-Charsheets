@@ -1,5 +1,7 @@
 # Dndcharsheet
 
+This project is meant to be a character sheet generator and live gaming tool for Dungeons and Dragons 5th edition. It is for personal use only and as yet does not have any ability to persist or save data. The goal of this tool is to combine the best of character sheet generators and auto-rollers, so the player does not have to check or add anything to perform an action, and only needs to press a button to do so.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
 ## Development server
