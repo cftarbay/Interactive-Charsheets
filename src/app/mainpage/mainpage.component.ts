@@ -41,7 +41,39 @@ export class MainpageComponent implements OnInit {
 		}
 	];
 
+	races: any = [
+		"Aasimar",
+		"Dwarf",
+		"Elf",
+		"Genasi",
+		"Gnome",
+		"Half-elf",
+		"Half-orc",
+		"Halfling",
+		"Human",
+		"Tiefling"
+	];
+
+	classes: any = [
+		"Barbarian",
+		"Bard",
+		"Cleric",
+		"Druid",
+		"Fighter",
+		"Monk",
+		"Paladin",
+		"Ranger",
+		"Rogue",
+		"Sorcerer",
+		"Warlock",
+		"Wizard"
+	]
+
+	levels: any = [];
+
 	constructor() {
+		for (let i = 1; i <= 20; i++)
+			this.levels.push(i);
 	}
 
 	ngOnInit() {
@@ -60,6 +92,7 @@ export class MainpageComponent implements OnInit {
 			values.splice(idx, 1);
 			let sum = values[0] + values[1] + values[2];
 			this.abilities[i].score = sum;
+			this.abilities[i].mod = Math.trunc((sum - 10) / 2);
 		}
 	}
 
