@@ -1,0 +1,25 @@
+<div>
+    <mat-grid-list cols="2">
+        <mat-grid-tile id='description'>
+            <mat-card id='description-card'>
+                <mat-form-field>
+                    <input matInput type=text placeholder='Name'>
+                </mat-form-field>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile id='abilities'>
+                <mat-card id='abilities-card'>
+            <h1>Ability scores</h1>
+            <button mat-raised-button color='primary' (click)='generateStats($event)'>Click</button>
+            <div *ngIf="rolled">
+                <mat-form-field style='width:2.5rem' *ngFor="let a of abilities; index as i">
+                    <input size=2 placeholder='{{a.ability.substring(0,3)}}' matInput type=number [(ngModel)]='a.score'>
+                </mat-form-field>
+            </div>
+                </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+        <mat-grid-tile><h1>Dice Log</h1><textarea MatTextarea></textarea> </mat-grid-tile>
+    </mat-grid-list>
+
+</div>

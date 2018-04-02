@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('dnd-beyond App', () => {
+describe('dnd-charsheet App', () => {
   let page: AppPage;
 
   beforeEach(() => {
