@@ -42,10 +42,9 @@ export class MainpageComponent implements OnInit {
 	];
 
 	races: any = [
-		"Aasimar",
+		"Dragonborn",
 		"Dwarf",
 		"Elf",
-		"Genasi",
 		"Gnome",
 		"Half-elf",
 		"Half-orc",
@@ -71,6 +70,12 @@ export class MainpageComponent implements OnInit {
 
 	levels: any = [];
 
+	dicelog: string = "";
+
+	class: string;
+	race: string;
+	level: number;
+
 	constructor() {
 		for (let i = 1; i <= 20; i++)
 			this.levels.push(i);
@@ -86,14 +91,18 @@ export class MainpageComponent implements OnInit {
 			for (let j = 0; j < 4; j++) {
 				values.push(Math.floor(Math.random() * 6) + 1)
 			}
-			console.log(values);
+			this.dicelog = this.dicelog + '4d6 drop 1 [' + values + '] \n';
 			let min = Math.min(values[0], values[1], values[2], values[3]);
 			let idx = values.indexOf(min);
 			values.splice(idx, 1);
 			let sum = values[0] + values[1] + values[2];
 			this.abilities[i].score = sum;
-			this.abilities[i].mod = Math.trunc((sum - 10) / 2);
+
+			this.abilities[i].mod = Math.floor((sum - 10) / 2);
 		}
 	}
 
+	calcMod(e, a) {
+		a.mod = Math.floor((e - 10) / 2);
+	}
 }
